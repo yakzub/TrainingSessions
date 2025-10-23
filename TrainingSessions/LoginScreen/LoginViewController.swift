@@ -8,8 +8,10 @@
 import UIKit
 import SnapKit
 
-class ViewController: UIViewController {
+class LoginViewController: UIViewController {
 
+    private var interactor: LoginInteractor? = nil
+    
     //UILabel
     private var UILabelLogin: UILabel = {
         $0.text = "Login"
@@ -64,6 +66,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let presenter = LoginPresenter(view: self)
+        interactor = LoginInteractor(presenter: presenter)
+        
+        interactor?.login(username: "", password: "")
+        
         setupViews()
         setupConstraints()
         
@@ -71,7 +78,7 @@ class ViewController: UIViewController {
 }
 
 
-extension ViewController {
+extension LoginViewController {
    
     private func setupViews() {
         view.addSubview(UILabelLogin)
