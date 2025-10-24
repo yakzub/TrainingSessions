@@ -15,6 +15,6 @@ class LoginPresenter {
     }
 
     func loginResult(result: Bool) {
-        
+        view.onLoginResult(success: result)
     }
 }

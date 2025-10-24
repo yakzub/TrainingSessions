@@ -75,6 +75,10 @@ class LoginViewController: UIViewController {
         setupConstraints()
         
     }
+
+    func onLoginResult(success: Bool) {
+        print(success)
+    }
 }
 
 

@@ -17,11 +17,9 @@ class LoginInteractor {
     }
     
     func login(username: String, password: String) -> Void {
-       
-        networkService.loginRequest()
-        
 
-        presenter.loginResult(result: true)
+        networkService.loginRequest(login: username, password: password) { response in
+            self.presenter.loginResult(result: response != nil)
+        }
     }
-    
 }
