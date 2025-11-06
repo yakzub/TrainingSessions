@@ -10,10 +10,11 @@ import Foundation
 class LoginInteractor {
     
     private let presenter: LoginPresenter
-    private let networkService = NetworkService()
-    
-    init(presenter: LoginPresenter) {
+    private let networkService: NetworkService
+
+    init(presenter: LoginPresenter, networkService: NetworkService) {
         self.presenter = presenter
+        self.networkService = networkService
     }
     
     func login(username: String, password: String) -> Void {
