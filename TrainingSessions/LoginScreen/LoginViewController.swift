@@ -68,9 +68,16 @@ class LoginViewController: UIViewController {
         
         setupViews()
         setupConstraints()
+        addActions()
         
     }
-
+    
+    @objc func login() {
+        interactor?.login(username: UILabelLogin.text ?? "", password: UILabelPassword.text ?? "")
+        print(UILabelLogin.text)
+        print(UILabelPassword.text)
+    }
+    
     func onLoginResult(success: Bool) {
         print(success)
     }
@@ -136,4 +143,9 @@ extension LoginViewController {
         }
         
     }
+    
+    private func addActions() {
+        UIButtonLogin.addTarget(self, action: #selector(login), for: .touchUpInside)
+    }
+    
 }

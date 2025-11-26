@@ -13,7 +13,7 @@ class NetworkService {
 
 
     func loginRequest(login: String, password: String, callback: @escaping LoginCallback) {
-        var request = URLRequest(url: URL(string: "\(NetworkService.baseAddress)/authorization")!)
+        var request = URLRequest(url: URL(string: "\(NetworkService.baseAddress)/authorization/login/")!)
         request.httpMethod = "POST"
         request.httpBody = try? JSONEncoder().encode(AuthRequest(username: login, password: password))
 
