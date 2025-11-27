@@ -73,9 +73,7 @@ class LoginViewController: UIViewController {
     }
     
     @objc func login() {
-        interactor?.login(username: UILabelLogin.text ?? "", password: UILabelPassword.text ?? "")
-        print(UILabelLogin.text)
-        print(UILabelPassword.text)
+        interactor?.login(username: UITextFieldLogin.text ?? "", password: UITextFieldPassword.text ?? "")
     }
     
     func onLoginResult(success: Bool) {
